@@ -15,7 +15,22 @@ Application Electron pour télécharger et remplacer des fichiers depuis un repo
 - npm ou yarn
 - Git installé sur votre système
 
-## 🔧 Installation
+## 📥 Téléchargement
+
+Les versions compilées de l'application sont disponibles dans les [Releases GitHub](https://github.com/alexxandre80/Dispatch-dub/releases).
+
+### Installation rapide
+
+1. Allez sur la [page des releases](https://github.com/alexxandre80/Dispatch-dub/releases)
+2. Téléchargez le fichier correspondant à votre système :
+   - **macOS** : `Dispatch Dub-*.dmg` ou `.zip`
+   - **Windows** : `*.exe` ou `.zip`
+   - **Linux** : `.deb` (Debian/Ubuntu), `.rpm` (Red Hat/Fedora) ou `.zip`
+3. Installez et lancez l'application
+
+## 🔧 Installation (Développement)
+
+Pour développer ou compiler l'application vous-même :
 
 1. Clonez ou téléchargez ce repository
 2. Installez les dépendances :
@@ -99,6 +114,22 @@ npm run package
 ```
 
 Les fichiers seront dans `out/` dans un dossier nommé selon votre plateforme.
+
+### Créer une release GitHub
+
+Pour créer une release avec les fichiers de build :
+
+```bash
+# Avec GitHub CLI (recommandé)
+./scripts/create-release.sh
+
+# Ou manuellement :
+# 1. Créez un tag : git tag -a v1.0.0 -m "Release 1.0.0"
+# 2. Poussez le tag : git push origin v1.0.0
+# 3. Allez sur GitHub et créez une release avec les fichiers de out/make/
+```
+
+**Note** : Un workflow GitHub Actions est configuré pour créer automatiquement des releases lors de la création d'un tag `v*`.
 
 ## ⚠️ Notes importantes
 
