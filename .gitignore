@@ -3,5 +3,10 @@ node_modules/
 *.log
 dist/
 build/
+out/
 *.tmp
+*.dmg
+*.deb
+*.rpm
+*.zip
 

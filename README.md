@@ -60,15 +60,57 @@ Dispatch-dub/
 
 L'application téléchargera les fichiers du dossier correspondant à la langue sélectionnée et les copiera dans le chemin de destination.
 
+## 📦 Build de l'application
+
+Pour créer une version distribuable de l'application :
+
+### Build pour la plateforme actuelle
+
+```bash
+npm run make
+```
+
+Cela créera un exécutable dans le dossier `out/` :
+- **macOS** : `.dmg` (image disque) et `.zip`
+- **Windows** : `.exe` (installateur Squirrel)
+- **Linux** : `.deb` (Debian/Ubuntu), `.rpm` (Red Hat/Fedora) et `.zip`
+
+### Build pour une plateforme spécifique
+
+Vous pouvez spécifier la plateforme cible :
+
+```bash
+# macOS
+npm run make -- --platform=darwin
+
+# Windows
+npm run make -- --platform=win32
+
+# Linux
+npm run make -- --platform=linux
+```
+
+### Package sans créer d'installateur
+
+Pour créer juste un package sans installateur :
+
+```bash
+npm run package
+```
+
+Les fichiers seront dans `out/` dans un dossier nommé selon votre plateforme.
+
 ## ⚠️ Notes importantes
 
 - Les fichiers existants dans le dossier de destination seront **remplacés** par ceux du repository
 - L'application clone le repository dans un dossier temporaire qui est supprimé après la synchronisation
 - Assurez-vous d'avoir les permissions nécessaires pour écrire dans le dossier de destination
+- Pour créer des builds Windows sur macOS/Linux, vous devrez peut-être installer des outils supplémentaires
 
 ## 🛠️ Technologies utilisées
 
 - **Electron** : Framework pour créer des applications desktop
+- **Electron Forge** : Outil pour builder et distribuer l'application
 - **simple-git** : Bibliothèque pour interagir avec Git
 - **Node.js** : Runtime JavaScript
 
