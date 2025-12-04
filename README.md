@@ -28,24 +28,6 @@ Les versions compilées de l'application sont disponibles dans les [Releases Git
    - **Linux** : `.deb` (Debian/Ubuntu), `.rpm` (Red Hat/Fedora) ou `.zip`
 3. Installez et lancez l'application
 
-### Script de désinstallation (macOS)
-
-Le script de désinstallation est inclus dans le DMG macOS. Vous pouvez également le télécharger directement depuis le repository :
-
-- **Script de désinstallation** : [scripts/uninstall.sh](https://raw.githubusercontent.com/alexxandre80/Dispatch-dub/main/scripts/uninstall.sh)
-
-Pour l'utiliser :
-```bash
-# Télécharger le script
-curl -O https://raw.githubusercontent.com/alexxandre80/Dispatch-dub/main/scripts/uninstall.sh
-
-# Rendre le script exécutable
-chmod +x uninstall.sh
-
-# Exécuter le script
-./uninstall.sh
-```
-
 ## 🔧 Installation (Développement)
 
 Pour développer ou compiler l'application vous-même :
@@ -148,44 +130,6 @@ Pour créer une release avec les fichiers de build :
 ```
 
 **Note** : Un workflow GitHub Actions est configuré pour créer automatiquement des releases lors de la création d'un tag `v*`.
-
-## 🗑️ Désinstallation (macOS)
-
-L'application inclut un script de désinstallation automatique qui supprime complètement l'application et tous ses fichiers associés.
-
-### Méthode 1 : Depuis le DMG (recommandée)
-
-1. Ouvrez le DMG d'installation que vous avez téléchargé
-2. Double-cliquez sur **"Désinstaller Dispatch Dub.command"**
-3. Suivez les instructions à l'écran
-4. Le script supprimera automatiquement :
-   - L'application depuis `/Applications/`
-   - Les fichiers de support (`~/Library/Application Support/Dispatch Dub`)
-   - Les caches (`~/Library/Caches/Dispatch Dub`)
-   - Les préférences (`~/Library/Preferences/com.dispatchdub.*`)
-   - Les logs (`~/Library/Logs/Dispatch Dub`)
-
-### Méthode 2 : Téléchargement direct du script
-
-1. Téléchargez le script depuis GitHub :
-   ```bash
-   curl -O https://raw.githubusercontent.com/alexxandre80/Dispatch-dub/main/scripts/uninstall.sh
-   ```
-
-2. Rendez-le exécutable et lancez-le :
-   ```bash
-   chmod +x uninstall.sh
-   ./uninstall.sh
-   ```
-
-### Méthode 3 : Désinstallation manuelle
-
-1. Supprimez l'application depuis le dossier Applications
-2. (Optionnel) Supprimez manuellement les fichiers de support :
-   - `~/Library/Application Support/Dispatch Dub`
-   - `~/Library/Caches/Dispatch Dub`
-   - `~/Library/Preferences/com.dispatchdub.*`
-   - `~/Library/Logs/Dispatch Dub`
 
 ## ⚠️ Notes importantes
 
