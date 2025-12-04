@@ -9,4 +9,6 @@ out/
 *.deb
 *.rpm
 *.zip
+.env
+temp-dmg/
 

@@ -2,6 +2,33 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
+// Charger les variables d'environnement pour la signature
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
+// Configuration de signature (activée si les variables sont définies)
+const hasSigningConfig = process.env.APPLE_SIGNING_IDENTITY && 
+                         process.env.APPLE_ID && 
+                         process.env.APPLE_APP_SPECIFIC_PASSWORD &&
+                         process.env.APPLE_TEAM_ID;
+
+const osxSignConfig = hasSigningConfig ? {
+  identity: process.env.APPLE_SIGNING_IDENTITY,
+  optionsForFile: (filePath) => {
+    return {
+      hardenedRuntime: true,
+      gatekeeperAssess: false,
+      entitlements: path.join(__dirname, 'entitlements.plist')
+    };
+  }
+} : false;
+
+const osxNotarizeConfig = hasSigningConfig ? {
+  tool: 'notarytool',
+  appleId: process.env.APPLE_ID,
+  appleIdPassword: process.env.APPLE_APP_SPECIFIC_PASSWORD,
+  teamId: process.env.APPLE_TEAM_ID
+} : false;
+
 module.exports = {
   packagerConfig: {
     name: 'Dispatch Dub',
@@ -9,8 +36,8 @@ module.exports = {
     asar: true,
     appBundleId: 'com.dispatchdub.app',
     appCategoryType: 'public.app-category.utilities',
-    osxSign: false, // Mettre à true si vous avez un certificat de signature
-    osxNotarize: false, // Mettre à true si vous voulez notariser l'app
+    osxSign: osxSignConfig,
+    osxNotarize: osxNotarizeConfig,
     extendInfo: {
       'CFBundleName': 'Dispatch Dub',
       'CFBundleDisplayName': 'Dispatch Dub',
