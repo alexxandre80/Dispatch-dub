@@ -95,6 +95,12 @@ jobs:
           name: linux-build
           path: ./artifacts/linux
 
+      - name: Copy uninstaller script
+        run: |
+          mkdir -p ./artifacts/uninstaller
+          cp scripts/uninstall.sh ./artifacts/uninstaller/
+          chmod +x ./artifacts/uninstaller/uninstall.sh
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
