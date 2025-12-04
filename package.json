@@ -1,0 +1,24 @@
+{
+  "name": "dispatch-dub",
+  "version": "1.0.0",
+  "description": "Application Electron pour télécharger et remplacer des fichiers depuis un repo Git selon la langue",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "keywords": [
+    "electron",
+    "git",
+    "file-sync"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  },
+  "dependencies": {
+    "simple-git": "^3.20.0"
+  }
+}
+
