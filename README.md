@@ -131,6 +131,24 @@ Pour créer une release avec les fichiers de build :
 
 **Note** : Un workflow GitHub Actions est configuré pour créer automatiquement des releases lors de la création d'un tag `v*`.
 
+## 🗑️ Désinstallation (macOS)
+
+L'application inclut un script de désinstallation automatique :
+
+1. **Méthode automatique** (recommandée) :
+   - Ouvrez le DMG d'installation
+   - Double-cliquez sur "Désinstaller Dispatch Dub.command"
+   - Suivez les instructions à l'écran
+
+2. **Méthode manuelle** :
+   - Supprimez l'application depuis le dossier Applications
+   - (Optionnel) Supprimez les fichiers de support :
+     - `~/Library/Application Support/Dispatch Dub`
+     - `~/Library/Caches/Dispatch Dub`
+     - `~/Library/Preferences/com.dispatchdub.*`
+
+Le script de désinstallation est également disponible dans le repository : `scripts/uninstall.sh`
+
 ## ⚠️ Notes importantes
 
 - Les fichiers existants dans le dossier de destination seront **remplacés** par ceux du repository
