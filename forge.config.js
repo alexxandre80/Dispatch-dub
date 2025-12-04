@@ -6,7 +6,23 @@ module.exports = {
   packagerConfig: {
     name: 'Dispatch Dub',
     executableName: 'dispatch-dub',
-    asar: true
+    asar: true,
+    appBundleId: 'com.dispatchdub.app',
+    appCategoryType: 'public.app-category.utilities',
+    osxSign: false, // Mettre à true si vous avez un certificat de signature
+    osxNotarize: false, // Mettre à true si vous voulez notariser l'app
+    extendInfo: {
+      'CFBundleName': 'Dispatch Dub',
+      'CFBundleDisplayName': 'Dispatch Dub',
+      'CFBundleIdentifier': 'com.dispatchdub.app',
+      'CFBundleVersion': '1.0.0',
+      'CFBundleShortVersionString': '1.0.0',
+      'CFBundlePackageType': 'APPL',
+      'CFBundleSignature': '????',
+      'LSMinimumSystemVersion': '10.13.0',
+      'NSHumanReadableCopyright': 'Copyright © 2025 Dispatch Dub',
+      'LSApplicationCategoryType': 'public.app-category.utilities'
+    }
   },
   makers: [
     {
